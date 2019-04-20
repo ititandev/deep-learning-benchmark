@@ -1,0 +1,63 @@
+caffe2's vgg16 eval at fp32: 50.6ms avg
+caffe2's vgg16 train at fp32: 177.3ms avg
+caffe2's resnet152 eval at fp32: 80.1ms avg
+caffe2's resnet152 train at fp32: 238.4ms avg
+caffe2's vgg16 eval at fp16: 47.5ms avg
+caffe2's vgg16 train at fp16: 173.0ms avg
+caffe2's resnet152 eval at fp16: 70.4ms avg
+caffe2's resnet152 train at fp16: 223.0ms avg
+
+caffe2's vgg16 eval at fp32: 50.7ms avg
+caffe2's vgg16 train at fp32: 177.4ms avg
+caffe2's resnet152 eval at fp32: 80.5ms avg
+caffe2's resnet152 train at fp32: 238.3ms avg
+caffe2's vgg16 eval at fp16: 47.5ms avg
+caffe2's vgg16 train at fp16: 173.1ms avg
+caffe2's resnet152 eval at fp16: 70.8ms avg
+caffe2's resnet152 train at fp16: 222.3ms avg
+
+
+
+
+
+tensorflow's vgg16 eval at fp32: 38.7ms avg
+tensorflow's vgg16 train at fp32: 114.3ms avg
+tensorflow's resnet152 eval at fp32: 65.6ms avg
+tensorflow's resnet152 train at fp32: 292.1ms avg
+tensorflow's vgg16 eval at fp16: 37.5ms avg
+tensorflow's vgg16 train at fp16: 110.6ms avg
+tensorflow's resnet152 eval at fp16: 56.5ms avg
+tensorflow's resnet152 train at fp16: 270.8ms avg
+
+tensorflow's vgg16 eval at fp32: 38.7ms avg
+tensorflow's vgg16 train at fp32: 114.4ms avg
+tensorflow's resnet152 eval at fp32: 64.6ms avg
+tensorflow's resnet152 train at fp32: 282.2ms avg
+tensorflow's vgg16 eval at fp16: 37.6ms avg
+tensorflow's vgg16 train at fp16: 111.1ms avg
+tensorflow's resnet152 eval at fp16: 56.8ms avg
+tensorflow's resnet152 train at fp16: 276.5ms avg
+
+
+
+
+
+
+
+pytorch's vgg16 eval at fp32: 39.6ms avg
+pytorch's vgg16 train at fp32: 126.3ms avg
+pytorch's resnet152 eval at fp32: 60.1ms avg
+pytorch's resnet152 train at fp32: 211.4ms avg
+pytorch's vgg16 eval at fp16: 39.2ms avg
+pytorch's vgg16 train at fp16: 125.1ms avg
+pytorch's resnet152 eval at fp16: 55.7ms avg
+pytorch's resnet152 train at fp16: 223.5ms avg
+
+pytorch's vgg16 eval at fp32: 39.6ms avg
+pytorch's vgg16 train at fp32: 126.0ms avg
+pytorch's resnet152 eval at fp32: 60.0ms avg
+pytorch's resnet152 train at fp32: 210.7ms avg
+pytorch's vgg16 eval at fp16: 39.1ms avg
+pytorch's vgg16 train at fp16: 124.5ms avg
+pytorch's resnet152 eval at fp16: 55.7ms avg
+pytorch's resnet152 train at fp16: 221.8ms avg
