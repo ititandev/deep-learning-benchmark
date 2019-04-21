@@ -35,7 +35,7 @@ class tensorflow_base:
 
     def eval(self, num_iterations, num_warmups):
         durations = []
-        with tf.Session() as sess:
+        with tf.Session(config=tf.ConfigProto(log_device_placement=False)) as sess:
             sess.run(self.initializer)
             for i in range(num_iterations + num_warmups):
                 t1 = time()
@@ -48,7 +48,7 @@ class tensorflow_base:
 
     def train(self, num_iterations, num_warmups):
         durations = []
-        with tf.Session() as sess:
+        with tf.Session(config=tf.ConfigProto(log_device_placement=False)) as sess:
             sess.run(self.initializer)
             for i in range(num_iterations + num_warmups):
                 t1 = time()
