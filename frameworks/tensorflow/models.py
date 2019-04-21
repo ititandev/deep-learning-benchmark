@@ -1,11 +1,11 @@
+import tensorflow as tf
+from frameworks.tensorflow.tf_models import convnet_builder
+from frameworks.tensorflow.tf_models import resnet_model, vgg_model
+import numpy as np
 from time import time
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-import numpy as np
 
-from frameworks.tensorflow.tf_models import resnet_model, vgg_model
-from frameworks.tensorflow.tf_models import convnet_builder
-import tensorflow as tf
 
 class tensorflow_base:
 
@@ -41,7 +41,6 @@ class tensorflow_base:
                 t1 = time()
                 sess.run(self.logits)
                 t2 = time()
-                #print(t2 - t1)
                 if i >= num_warmups:
                     durations.append(t2 - t1)
         return durations
@@ -54,20 +53,20 @@ class tensorflow_base:
                 t1 = time()
                 sess.run(self.grad)
                 t2 = time()
-                #print(t2 - t1)
                 if i >= num_warmups:
                     durations.append(t2 - t1)
         return durations
 
+
 class vgg16(tensorflow_base):
 
-  def __init__(self, precision, image_shape, batch_size):
-    tensorflow_base.__init__(self, vgg_model.Vgg16Model, precision, image_shape, batch_size)
+    def __init__(self, precision, image_shape, batch_size):
+        tensorflow_base.__init__(
+            self, vgg_model.Vgg16Model, precision, image_shape, batch_size)
 
 
 class resnet152(tensorflow_base):
 
-  def __init__(self, precision, image_shape, batch_size):
-      tensorflow_base.__init__(self, resnet_model.create_resnet152_model, precision, image_shape, batch_size)
-
-
+    def __init__(self, precision, image_shape, batch_size):
+        tensorflow_base.__init__(
+            self, resnet_model.create_resnet152_model, precision, image_shape, batch_size)

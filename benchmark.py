@@ -19,7 +19,7 @@ models = [
 batch_sizes = [
     4,
     8,
-    # 16,
+    16,
     # 32
 ]
 

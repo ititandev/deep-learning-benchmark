@@ -1,12 +1,13 @@
+import torchvision
 from time import time
 
 import torch
 # this turns on auto tuner which optimizes performance
 torch.backends.cudnn.benchmark = True
-import torchvision
 
 print('cuda version=', torch.version.cuda)
 print('cudnn version=', torch.backends.cudnn.version())
+
 
 class pytorch_base:
 
@@ -48,14 +49,14 @@ class pytorch_base:
                 durations.append(t2 - t1)
         return durations
 
+
 class vgg16(pytorch_base):
 
-  def __init__(self, precision, image_shape, batch_size):
-    super().__init__('vgg16', precision, image_shape, batch_size)
+    def __init__(self, precision, image_shape, batch_size):
+        super().__init__('vgg16', precision, image_shape, batch_size)
 
 
 class resnet152(pytorch_base):
 
-  def __init__(self, precision, image_shape, batch_size):
-    super().__init__('resnet152', precision, image_shape, batch_size)
-
+    def __init__(self, precision, image_shape, batch_size):
+        super().__init__('resnet152', precision, image_shape, batch_size)
