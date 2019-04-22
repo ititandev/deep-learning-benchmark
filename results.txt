@@ -18,8 +18,6 @@ caffe2's resnet152 train at fp16: 222.3ms avg
 
 
 
-
-
 tensorflow's vgg16 eval at fp32: 38.7ms avg
 tensorflow's vgg16 train at fp32: 114.3ms avg
 tensorflow's resnet152 eval at fp32: 65.6ms avg
@@ -41,9 +39,6 @@ tensorflow's resnet152 train at fp16: 276.5ms avg
 
 
 
-
-
-
 pytorch's vgg16 eval at fp32: 39.6ms avg
 pytorch's vgg16 train at fp32: 126.3ms avg
 pytorch's resnet152 eval at fp32: 60.1ms avg
@@ -61,6 +56,8 @@ pytorch's vgg16 eval at fp16: 39.1ms avg
 pytorch's vgg16 train at fp16: 124.5ms avg
 pytorch's resnet152 eval at fp16: 55.7ms avg
 pytorch's resnet152 train at fp16: 221.8ms avg
+
+
 
 
 
