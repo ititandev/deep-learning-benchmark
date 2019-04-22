@@ -5,7 +5,7 @@ from caffe2.python.modeling.initializers import Initializer, pFP16Initializer
 from caffe2.python import core, model_helper, workspace, brew
 from caffe2.python.models.resnet import ResNetBuilder
 
-#core.GlobalInit(['caffe2', '--caffe2_log_level=0'])
+# core.GlobalInit(['caffe2', '--caffe2_log_level=0'])
 
 
 class caffe2_base:
@@ -43,26 +43,28 @@ class caffe2_base:
 
     def eval(self, num_iterations, num_warmups):
         durations = []
-        #with core.DeviceScope(core.DeviceOption(caffe2_pb2.CUDA, 0)):
+        # with core.DeviceScope(core.DeviceOption(caffe2_pb2.CUDA, 0)):
         for i in range(num_iterations + num_warmups):
             t1 = time()
             workspace.FeedBlob("data", self.input)
             workspace.RunNet(self.forward_net.Proto().name)
             out = workspace.FetchBlob("softmax")
             t2 = time()
+            print(t2-t1)
             if i >= num_warmups:
                 durations.append(t2 - t1)
         return durations
 
     def train(self, num_iterations, num_warmups):
         durations = []
-        #with core.DeviceScope(core.DeviceOption(caffe2_pb2.CUDA, 0)):
+        # with core.DeviceScope(core.DeviceOption(caffe2_pb2.CUDA, 0)):
         for i in range(num_iterations + num_warmups):
             t1 = time()
             workspace.FeedBlob("data", self.input)
             workspace.RunNet(self.model.net.Proto().name)
             out = workspace.FetchBlob("softmax")
             t2 = time()
+            print(t2-t1)
             if i >= num_warmups:
                 durations.append(t2 - t1)
         return durations
