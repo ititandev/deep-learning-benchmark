@@ -51,7 +51,7 @@ class Benchmark():
             results[batch_size] = []
             for model in models:
                 eval_duration = self.benchmark_model('eval', framework, model, batch_size, num_iterations=iterations, num_warmups=warmups)
-                train_duration = self.benchmark_model('train', framework, model, batch_size)
+                train_duration = self.benchmark_model('train', framework, model, batch_size, num_iterations=iterations, num_warmups=warmups)
                 print("{}'s {} eval at batch size {}: {}ms avg".format(framework, model, batch_size, round(eval_duration, 1)))
                 print("{}'s {} train at batch size {}: {}ms avg".format(framework, model, batch_size, round(train_duration, 1)))
                 results[batch_size].append(eval_duration)
