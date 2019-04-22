@@ -14,15 +14,16 @@ frameworks = [
 ]
 
 models = [
-    'vgg16',
+    #'vgg16',
     'resnet152',
 ]
 
 batch_sizes = [
-    4,
-    8,
-    16,
-    # 32
+
+    #4,
+    #8,
+    #16,
+    32
 ]
 
 class Benchmark():
