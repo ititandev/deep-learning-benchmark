@@ -34,7 +34,7 @@ References:
 import numpy as np
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
-from frameworks.tensorflow.tf_models import model as model_lib
+from frameworks.tensorflowcpu.tf_models import model as model_lib
 
 
 def bottleneck_block_v1(cnn, depth, depth_bottleneck, stride):

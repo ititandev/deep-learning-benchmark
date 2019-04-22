@@ -1,27 +1,27 @@
 import tensorflow as tf
-from frameworks.tensorflow.tf_models import convnet_builder
-from frameworks.tensorflow.tf_models import resnet_model, vgg_model
+from frameworks.tensorflowcpu.tf_models import convnet_builder
+from frameworks.tensorflowcpu.tf_models import resnet_model, vgg_model
 import numpy as np
 from time import time
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"   
 
 class tensorflow_base:
 
     def __init__(self, model_creator, precision, image_shape, batch_size):
+        # with tf.device("/cpu:0"):
         phase_train = False
-        data_format = 'NCHW'
-        # data_format = 'NHWC'
+        # data_format = 'NCHW'
+        data_format = 'NHWC'
         data_type = tf.float32 if precision == 'fp32' else tf.float16
-        image_shape = [batch_size, 3, image_shape[0], image_shape[1]]
+        image_shape = [batch_size, image_shape[0], image_shape[1], 3]
         nclass = 1000
         use_tf_layers = False
 
+    
         tf.reset_default_graph()
-
-
-        # with tf.device("/cpu:0"):
+        
         images = tf.constant(np.random.rand(*image_shape), dtype=data_type)
 
         network = convnet_builder.ConvNetBuilder(
@@ -37,13 +37,11 @@ class tensorflow_base:
         self.initializer = tf.global_variables_initializer()
 
 
-        self.config = tf.ConfigProto()
-        self.config.log_device_placement = False
-        self.config.gpu_options.allow_growth = False
 
     def eval(self, num_iterations, num_warmups):
         durations = []
-        with tf.Session(config=self.config) as sess:
+        with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
+            # with tf.device("/cpu:0"):
             sess.run(self.initializer)
             for i in range(num_iterations + num_warmups):
                 t1 = time()
@@ -55,7 +53,8 @@ class tensorflow_base:
 
     def train(self, num_iterations, num_warmups):
         durations = []
-        with tf.Session(config=self.config) as sess:
+        with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
+            # with tf.device("/cpu:0"):
             sess.run(self.initializer)
             for i in range(num_iterations + num_warmups):
                 t1 = time()
