@@ -8,7 +8,9 @@ import numpy as np
 frameworks = [
     'pytorch',
     'tensorflow',
-    'caffe2'
+    'caffe2',
+    'pytorchcpu',
+    'tensorflowcpu'
 ]
 
 models = [
@@ -29,7 +31,7 @@ class Benchmark():
         framework_model = import_module('.'.join(['frameworks', framework, 'models']))
         return getattr(framework_model, model)
 
-    def benchmark_model(self, mode, framework, model, batch_size=16, precision = 'fp32', image_shape=(224, 224), num_iterations=20, num_warmups=20):
+    def benchmark_model(self, mode, framework, model, batch_size=16, precision = 'fp32', image_shape=(224, 224), num_iterations=20, num_warmups=10):
         framework_model = self.get_framework_model(framework, model)(precision, image_shape, batch_size)
         durations = framework_model.eval(num_iterations, num_warmups) if mode == 'eval' else framework_model.train(num_iterations, num_warmups)
         durations = np.array(durations)
@@ -41,13 +43,13 @@ class Benchmark():
             results[framework] = self.benchmark_framework(framework)
         return results
 
-    def benchmark_framework(self, framework, num_iterations=20, num_warmups=20):
+    def benchmark_framework(self, framework, iterations=20, warmups=10):
         results = OrderedDict()
 
         for batch_size in batch_sizes:
             results[batch_size] = []
             for model in models:
-                eval_duration = self.benchmark_model('eval', framework, model, batch_size)
+                eval_duration = self.benchmark_model('eval', framework, model, batch_size, num_iterations=num_iterations, num_warmups=num_warmups)
                 train_duration = self.benchmark_model('train', framework, model, batch_size)
                 print("{}'s {} eval at batch size {}: {}ms avg".format(framework, model, batch_size, round(eval_duration, 1)))
                 print("{}'s {} train at batch size {}: {}ms avg".format(framework, model, batch_size, round(train_duration, 1)))
@@ -65,7 +67,7 @@ if __name__ == '__main__':
 
     if args.framework:
         print('RUNNING BENCHMARK FOR FRAMEWORK', args.framework)
-        results = Benchmark().benchmark_framework(args.framework, args.num_iterations, args.num_warmups)
+        results = Benchmark().benchmark_framework(args.framework, int(args.num_iterations), int(args.num_warmups))
     else:
         print('RUNNING BENCHMARK FOR FRAMEWORK', frameworks)
         results = Benchmark().benchmark_all()
