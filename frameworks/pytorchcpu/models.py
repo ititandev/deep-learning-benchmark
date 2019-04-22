@@ -16,8 +16,8 @@ class pytorch_base:
         self.model = getattr(torchvision.models, model_name)() if precision == 'fp32' \
             else getattr(torchvision.models, model_name)().half()
         x = torch.rand(batch_size, 3, image_shape[0], image_shape[1])
-        self.eval_input = torch.autograd.Variable(x, volatile=True) if precision == 'fp32' \
-            else torch.autograd.Variable(x, volatile=True).half()
+        self.eval_input = torch.autograd.Variable(x, requires_grad=False) if precision == 'fp32' \
+            else torch.autograd.Variable(x, requires_grad=False).half()
         self.train_input = torch.autograd.Variable(x, requires_grad=True) if precision == 'fp32' \
             else torch.autograd.Variable(x, requires_grad=True).half()
 
