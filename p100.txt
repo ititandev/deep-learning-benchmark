@@ -1,73 +1,3 @@
-caffe2's vgg16 eval at fp32: 50.6ms avg
-caffe2's vgg16 train at fp32: 177.3ms avg
-caffe2's resnet152 eval at fp32: 80.1ms avg
-caffe2's resnet152 train at fp32: 238.4ms avg
-caffe2's vgg16 eval at fp16: 47.5ms avg
-caffe2's vgg16 train at fp16: 173.0ms avg
-caffe2's resnet152 eval at fp16: 70.4ms avg
-caffe2's resnet152 train at fp16: 223.0ms avg
-
-caffe2's vgg16 eval at fp32: 50.7ms avg
-caffe2's vgg16 train at fp32: 177.4ms avg
-caffe2's resnet152 eval at fp32: 80.5ms avg
-caffe2's resnet152 train at fp32: 238.3ms avg
-caffe2's vgg16 eval at fp16: 47.5ms avg
-caffe2's vgg16 train at fp16: 173.1ms avg
-caffe2's resnet152 eval at fp16: 70.8ms avg
-caffe2's resnet152 train at fp16: 222.3ms avg
-
-
-
-tensorflow's vgg16 eval at fp32: 38.7ms avg
-tensorflow's vgg16 train at fp32: 114.3ms avg
-tensorflow's resnet152 eval at fp32: 65.6ms avg
-tensorflow's resnet152 train at fp32: 292.1ms avg
-tensorflow's vgg16 eval at fp16: 37.5ms avg
-tensorflow's vgg16 train at fp16: 110.6ms avg
-tensorflow's resnet152 eval at fp16: 56.5ms avg
-tensorflow's resnet152 train at fp16: 270.8ms avg
-
-tensorflow's vgg16 eval at fp32: 38.7ms avg
-tensorflow's vgg16 train at fp32: 114.4ms avg
-tensorflow's resnet152 eval at fp32: 64.6ms avg
-tensorflow's resnet152 train at fp32: 282.2ms avg
-tensorflow's vgg16 eval at fp16: 37.6ms avg
-tensorflow's vgg16 train at fp16: 111.1ms avg
-tensorflow's resnet152 eval at fp16: 56.8ms avg
-tensorflow's resnet152 train at fp16: 276.5ms avg
-
-
-
-
-pytorch's vgg16 eval at fp32: 39.6ms avg
-pytorch's vgg16 train at fp32: 126.3ms avg
-pytorch's resnet152 eval at fp32: 60.1ms avg
-pytorch's resnet152 train at fp32: 211.4ms avg
-pytorch's vgg16 eval at fp16: 39.2ms avg
-pytorch's vgg16 train at fp16: 125.1ms avg
-pytorch's resnet152 eval at fp16: 55.7ms avg
-pytorch's resnet152 train at fp16: 223.5ms avg
-
-pytorch's vgg16 eval at fp32: 39.6ms avg
-pytorch's vgg16 train at fp32: 126.0ms avg
-pytorch's resnet152 eval at fp32: 60.0ms avg
-pytorch's resnet152 train at fp32: 210.7ms avg
-pytorch's vgg16 eval at fp16: 39.1ms avg
-pytorch's vgg16 train at fp16: 124.5ms avg
-pytorch's resnet152 eval at fp16: 55.7ms avg
-pytorch's resnet152 train at fp16: 221.8ms avg
-
-
-
-
-
-
-
-
-
-
-
-
 
 caffe2's vgg16 eval at batch size 4: 18.0ms avg
 caffe2's vgg16 train at batch size 4: 64.7ms avg
@@ -85,6 +15,49 @@ caffe2's vgg16 eval at batch size 32: 109.2ms avg
 caffe2's vgg16 train at batch size 32: 382.2ms avg
 caffe2's resnet152 eval at batch size 32: 203.9ms avg
 caffe2's resnet152 train at batch size 32: 593.4ms avg
+
+
+pytorch's vgg16 eval at batch size 4: 14.2ms avg
+pytorch's vgg16 train at batch size 4: 44.5ms avg
+pytorch's resnet152 eval at batch size 4: 30.1ms avg
+pytorch's resnet152 train at batch size 4: 102.9ms avg
+pytorch's vgg16 eval at batch size 8: 25.8ms avg
+pytorch's vgg16 train at batch size 8: 78.3ms avg
+pytorch's resnet152 eval at batch size 8: 38.0ms avg
+pytorch's resnet152 train at batch size 8: 132.7ms avg
+pytorch's vgg16 eval at batch size 16: 39.6ms avg
+pytorch's vgg16 train at batch size 16: 127.0ms avg
+pytorch's resnet152 eval at batch size 16: 60.2ms avg
+pytorch's resnet152 train at batch size 16: 205.0ms avg
+pytorch's vgg16 eval at batch size 32: 75.8ms avg
+pytorch's vgg16 train at batch size 32: 241.5ms avg
+pytorch's resnet152 eval at batch size 32: 113.0ms avg
+pytorch's resnet152 train at batch size 32: 374.9ms avg
+
+
+
+tensorflow's vgg16 eval at batch size 4: 14.2ms avg
+tensorflow's vgg16 train at batch size 4: 64.2ms avg
+tensorflow's resnet152 eval at batch size 4: 26.8ms avg
+tensorflow's resnet152 train at batch size 4: 158.0ms avg
+tensorflow's vgg16 eval at batch size 8: 25.5ms avg
+tensorflow's vgg16 train at batch size 8: 75.9ms avg
+tensorflow's resnet152 eval at batch size 8: 41.6ms avg
+tensorflow's resnet152 train at batch size 8: 213.1ms avg
+tensorflow's vgg16 eval at batch size 16: 38.3ms avg
+tensorflow's vgg16 train at batch size 16: 122.1ms avg
+tensorflow's resnet152 eval at batch size 16: 62.8ms avg
+tensorflow's resnet152 train at batch size 16: 295.6ms avg
+tensorflow's vgg16 eval at batch size 32: 72.0ms avg
+tensorflow's vgg16 train at batch size 32: 222.3ms avg
+tensorflow's resnet152 eval at batch size 32: 115.5ms avg
+tensorflow's resnet152 train at batch size 32: 478.9ms avg
+
+
+
+
+
+
 
 
 
@@ -123,4 +96,3 @@ caffe2cpu's vgg16 eval at batch size 32: 16679.7ms avg
 caffe2cpu's vgg16 train at batch size 32: 60142.1ms avg
 caffe2cpu's resnet152 eval at batch size 32: 71661.7ms avg
 caffe2cpu's resnet152 train at batch size 32: 221822.4ms avg
-
