@@ -49,7 +49,7 @@ class Benchmark():
         for batch_size in batch_sizes:
             results[batch_size] = []
             for model in models:
-                eval_duration = self.benchmark_model('eval', framework, model, batch_size, num_iterations=num_iterations, num_warmups=num_warmups)
+                eval_duration = self.benchmark_model('eval', framework, model, batch_size, num_iterations=iterations, num_warmups=warmups)
                 train_duration = self.benchmark_model('train', framework, model, batch_size)
                 print("{}'s {} eval at batch size {}: {}ms avg".format(framework, model, batch_size, round(eval_duration, 1)))
                 print("{}'s {} train at batch size {}: {}ms avg".format(framework, model, batch_size, round(train_duration, 1)))
@@ -64,6 +64,10 @@ if __name__ == '__main__':
     parser.add_argument('-i', dest='num_iterations', required=False)
     parser.add_argument('-w', dest='num_warmups', required=False)
     args = parser.parse_args()
+    if (args.num_iterations is None):
+        args.num_iterations = 20
+    if (args.num_warmups is None):
+        args.num_warmups = 10
 
     if args.framework:
         print('RUNNING BENCHMARK FOR FRAMEWORK', args.framework)
