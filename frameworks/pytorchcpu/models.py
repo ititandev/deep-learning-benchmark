@@ -8,6 +8,7 @@ import torch
 # print('cuda version=', torch.version.cuda)
 # print('cudnn version=', torch.backends.cudnn.version())
 
+torch.set_num_threads(40)
 
 class pytorch_base:
 
