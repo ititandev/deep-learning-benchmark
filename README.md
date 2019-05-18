@@ -1,12 +1,12 @@
 # DeepLearning Benchmark for multi-harware & multi-framework
 ## Framework:
-- Tensorflow
-- Pytorch
-- Caffe2
+- Tensorflow 1.13.1
+- Pytorch 1.0.1.post2
+- Caffe2 0.8.1
 ## Hardware:
-- Tesla P100
-- Tesla T4
-- 2x Intel(R) Xeon(R) Silver 4114
+- Nvidia Tesla P100
+- Nvidia Tesla T4
+- 2x Intel Xeon Silver 4114
 
 <p align="center">
     <img src="results/tensorflow.png">

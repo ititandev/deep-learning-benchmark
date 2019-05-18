@@ -10,7 +10,8 @@ frameworks = [
     'tensorflow',
     'caffe2',
     'pytorchcpu',
-    'tensorflowcpu'
+    'tensorflowcpu',
+    'caffe2cpu'
 ]
 
 models = [
@@ -19,7 +20,6 @@ models = [
 ]
 
 batch_sizes = [
-
     4,
     8,
     16,
